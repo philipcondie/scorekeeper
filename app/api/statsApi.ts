@@ -110,7 +110,23 @@ export function dummyFetchStats(params) {
             "player__username": "pmc",
             "date": "2023-03-31T12:00:00Z",
             "score": 220
-          }
+          },
+          {"player__username": "morgan", "date": "2023-03-15T12:00:00Z", "score": 348}, 
+          {"player__username": "morgan", "date": "2023-03-16T12:00:00Z", "score": 287}, 
+          {"player__username": "morgan", "date": "2023-03-17T12:00:00Z", "score": 258}, 
+          {"player__username": "morgan", "date": "2023-03-18T12:00:00Z", "score": 196}, 
+          {"player__username": "morgan", "date": "2023-03-19T12:00:00Z", "score": 547}, 
+          {"player__username": "morgan", "date": "2023-03-20T12:00:00Z", "score": 219}, 
+          {"player__username": "morgan", "date": "2023-03-21T12:00:00Z", "score": 245}, 
+          {"player__username": "morgan", "date": "2023-03-22T12:00:00Z", "score": 265}, 
+          {"player__username": "morgan", "date": "2023-03-23T12:00:00Z", "score": 297}, 
+          {"player__username": "morgan", "date": "2023-03-24T12:00:00Z", "score": 404},
+          {"player__username": "morgan", "date": "2023-03-25T12:00:00Z", "score": 247}, 
+          {"player__username": "morgan", "date": "2023-03-26T12:00:00Z", "score": 368}, 
+          {"player__username": "morgan", "date": "2023-03-27T12:00:00Z", "score": 280}, 
+          {"player__username": "morgan", "date": "2023-03-28T12:00:00Z", "score": 213}, 
+          {"player__username": "morgan", "date": "2023-03-29T12:00:00Z", "score": 472}, 
+          {"player__username": "morgan", "date": "2023-03-30T12:00:00Z", "score": 251}
         ]
       }
 
