@@ -1,34 +1,35 @@
 import { useLoaderData } from "react-router";
 import type { Route } from "./+types/home";
 
-import { dummyGroupApi } from "~/api/menuApi";
+import { dummyDashboardAPI, dummyGroupApi } from "~/api/menuApi";
 
 export async function loader({request}){
 
-  const groupsData = dummyGroupApi();
+  // const groupsData = dummyGroupApi();
+  const groupsData = dummyDashboardAPI();
   return {groupsData}
 }
 
 export default function Home() {
   const loaderData = useLoaderData();
-
+  // console.log(loaderData);
   // breakdown loader data into individual components
-  const groupsData = loaderData.groupsData.groups;
-  return <GroupContainer groups={groupsData}/>;
-  // return <div>Hellow World</div>
+  const groups = loaderData.groupsData
+  return <GroupContainer groups={groups}/>;
+  
 }
 
 export function GroupContainer({groups}) {
-  // console.log("Group Container. groups: ", groups);
+  // console.log(groups);
   return (
     <div className="card-container"> 
       {groups.map(group => (
-        <div className="card m-3" key={group.name}>
+        <div className="card m-3" key={group.groupName}>
           <div className="card-header">
-            {group.name}
+            {group.groupName}
           </div>
           <div className="card-body">
-            <GroupCard />
+            <GroupCard group={group}/>
             {/* Hello World */}
           </div>
         </div>
@@ -38,58 +39,15 @@ export function GroupContainer({groups}) {
   );
 }
 
-export function GroupCard(){
-  const users = [{"user":"pmc","wins":3},{"user":"morgan","wins":2},
-                 {"user":"spence","wins":3},{"user":"nate","wins":1}]
-
-  const dailyScores = 
-    {
-      "games": ["Sudoku", "Mini Crossword"],
-      "players": [
-        {
-          "player":"pmc",
-          "scores": {
-            "Sudoku": 168,
-            "Mini Crossword": 34
-          }
-        },
-        {
-          "player":"spence",
-          "scores": {
-            "Sudoku": 168,
-            "Mini Crossword": 34
-          }
-        },
-        {
-          "player":"nate",
-          "scores": {
-            "Sudoku": 168,
-            "Mini Crossword": 34
-          }
-        },
-        {
-          "player":"morgan",
-          "scores": {
-            "Sudoku": 168,
-            "Mini Crossword": 34
-          }
-        },
-        {
-          "player":"sarah",
-          "scores": {
-            "Sudoku": 168,
-            "Mini Crossword": 34
-          }
-        },
-      ]
-    }
-    // add more groups here
-
-
+export function GroupCard({group}){
+  const monthlyWins = group.monthlyWins;
+  const dailyScores = {
+    games : group.games,
+    dailyScores : group.dailyScores}
   return (
     <>
     <DailyScoreCard data={dailyScores}/>
-    <TotalWinsCard data={users} />
+    <TotalWinsCard data={monthlyWins} />
     </>
   );
 }
@@ -106,7 +64,7 @@ export function TotalWinsCard({data}){
           {/* add mapping to add each user to the header column */}
           <tr>
             {users.map(user => (
-              <th scope="col">{user.user}</th>
+              <th scope="col">{user.name}</th>
             ))}
           </tr>
         </thead>
@@ -128,11 +86,7 @@ export function TotalWinsCard({data}){
 export function DailyScoreCard({data}) {
   // console.log(data);
   const games = data.games
-  const players = data.players;
-  console.log("Games");
-  console.log(games);
-  console.log("Players");
-  console.log(players);
+  const scores= data.dailyScores;
   return (
     <div className="card">
       <table className="table">
@@ -148,9 +102,9 @@ export function DailyScoreCard({data}) {
           </tr>
         </thead>
         <tbody>
-          {players.map(player => (
+          {scores.map(player => (
             <tr>
-              <td>{player.player}</td>
+              <td>{player.name}</td>
               {games.map(game => (
                 <td>{player.scores[game]}</td>
               ))}

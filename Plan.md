@@ -17,3 +17,16 @@
 # Stats
  ### Features
  
+
+## Group Object
+### Attributes
+- group name
+- games list (array of game names)
+- monthly wins
+    - player
+        - player name
+        - wins
+- daily scores
+    - player name
+    - scores
+        - game score
