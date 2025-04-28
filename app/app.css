@@ -55,3 +55,14 @@ body {
   margin: 5px;
   padding: 5px;
 }
+
+.no-hover .list-group-item{
+  border:none;
+}
+.no-hover .list-group-item:hover,
+.no-hover .list-group-item:focus{
+  background-color: transparent !important;
+  color: inherit !important;
+  cursor: default;
+  border: none !important;
+}

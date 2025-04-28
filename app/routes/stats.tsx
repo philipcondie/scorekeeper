@@ -1,11 +1,11 @@
 import { Form,  useLoaderData, useNavigate } from "react-router";
-import React, { useState } from "react";
+import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 import { dummyFetchStats } from "../api/statsApi";   
 import { dummyGamesApi, dummyGroupApi } from "../api/menuApi";
 import _ from 'lodash';
-import { index } from "@react-router/dev/routes";
+
 
 
 

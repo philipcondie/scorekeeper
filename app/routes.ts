@@ -10,5 +10,7 @@ export default [
         route("groups", "routes/groups.tsx"),
         route("games", "routes/games.tsx"),
         route("about", "routes/about.tsx"),
+        route("joinGroup","routes/JoinGroup.tsx"),
+        route("createGroup","routes/CreateGroup.tsx"),
     ])
 ] satisfies RouteConfig;

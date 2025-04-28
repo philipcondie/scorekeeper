@@ -12,12 +12,12 @@ export default function MenubarLayout() {
                     <li>
                         <NavLink to={`/scoreentry`}> Enter Score </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink to={`/groups`}> Groups </NavLink>
                     </li>
                     <li>
                         <NavLink to={`/games`}> Games </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                         <NavLink to={`/stats`}> Stats </NavLink>
                     </li>

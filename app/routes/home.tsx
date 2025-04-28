@@ -30,12 +30,10 @@ export function GroupContainer({groups}) {
           </div>
           <div className="card-body">
             <GroupCard group={group}/>
-            {/* Hello World */}
           </div>
         </div>
       ))}
-    </div>
-    
+    </div>  
   );
 }
 
@@ -53,13 +51,15 @@ export function GroupCard({group}){
 }
 
 export function TotalWinsCard({data}){
+  const currentDate = new Date();
   const users = data;
+  const monthNameLocale = currentDate.toLocaleString('default', { month: 'long' });
   return (
     <div className="card">
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Total Wins</th>
+            <th scope="col">{monthNameLocale} Wins</th>
           </tr>
           {/* add mapping to add each user to the header column */}
           <tr>
